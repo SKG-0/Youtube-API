@@ -100,12 +100,11 @@ function requestVideoPlaylist(playlistId){
       let output=`<h4 class="center-align">Latest Videos</h4>`;
       playlistitems.forEach(item=>{
         const videoid=item.snippet.resourceId.videoId;
-        output+=`
-          <div class="col-s3">
-            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoid}"
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+        output += `
+          <div class="col s3">
+          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoid}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
-        `
+        `;
       });
       videoContainer.innerHTML=output;
     }
