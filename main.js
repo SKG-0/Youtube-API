@@ -95,5 +95,22 @@ function requestVideoPlaylist(playlistId){
   const request=gapi.client.youtube.playlistItems.list(requestOptions);
   request.execute(response=>{
     console.log(response);
+    const playlistitems=response.result.items;
+    if(playlistitems){
+      let output=`<h4 class="align-center">Latest Videos</h4>`;
+      playlistitems.forEach(item=>{
+        const videoid=item.snippet.resourceId.videoId;
+        output+=`
+          <div class=col-s3>
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoid}"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+          </div>
+        `
+      });
+      videoContainer.innerHTML=output;
+    }
+    else{
+      videoContainer.innerHTML='No uploaded Videos';
+    }
   })
 }
