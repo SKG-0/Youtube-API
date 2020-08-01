@@ -81,6 +81,19 @@ function getChannel(channel) {
         <a class="btn grey darken-2" target="_blank" href="https://youtube.com/${channel.snippet.customUrl}">Visit Channel</a>
       `;
       showChannelData(output);
+      const playlistId=channel.contentDetails.relatedPlaylists.uploads;
+      requestVideoPlaylist(playlistId);
     })
     .catch((err) => alert("No channel by that name"));
+}
+function requestVideoPlaylist(playlistId){
+  const requestOptions={
+    playlistId:playlistId,
+    part:'snippet',
+    maxResults:10
+  }
+  const request=gapi.client.youtube.playlistItems.list(requestOptions);
+  request.execute(response=>{
+    console.log(response);
+  })
 }
