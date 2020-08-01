@@ -35,6 +35,7 @@ function updateSigninStatus(isSignedIn){
         signoutButton.style.display="none";
         content.style.display="none";
         videoContainer.style.display="none";
+        console.log("error");
     }
 }
 function handleAuthClick(){
