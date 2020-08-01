@@ -97,11 +97,11 @@ function requestVideoPlaylist(playlistId){
     console.log(response);
     const playlistitems=response.result.items;
     if(playlistitems){
-      let output=`<h4 class="align-center">Latest Videos</h4>`;
+      let output=`<h4 class="center-align">Latest Videos</h4>`;
       playlistitems.forEach(item=>{
         const videoid=item.snippet.resourceId.videoId;
         output+=`
-          <div class=col-s3>
+          <div class="col-s3">
             <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoid}"
             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
           </div>
